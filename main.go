@@ -18,3 +18,5 @@ func main() {
 func index(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "index", nil)
 }
+
+// aula 3 terminada
