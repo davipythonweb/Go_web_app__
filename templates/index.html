@@ -1,0 +1,39 @@
+<!-- embedar um codigo Go para carregar o template -->
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja-Golang</title>
+</head>
+<body>
+    <h1>Loja-Golang</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Camiseta</td>
+                <td>Azul</td>
+                <td>29,99</td>
+                <td>05</td>
+            </tr>
+
+            <tr>
+                <td>Calça Jeans</td>
+                <td>preta</td>
+                <td>79,99</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+{{end}}
