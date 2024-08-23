@@ -14,6 +14,7 @@
 - instalar pacote Go, do git:
 `go install github.com/lib/pq@v1.10.9`
 `go get github.com/lib/pq`
+`go get github.com/joho/godotenv`
 
 - iniciar pacotes go
 `go mod init`
@@ -44,4 +45,26 @@ insert into produtos (nome, descricao, preco, quantidade) values
 SELECT * FROM public.produtos
 ORDER BY id ASC LIMIT 100
 
+"""
+
+
+- codigo para carregar .env:
+
+
+"""
+import (
+    "fmt"
+    "log"
+    "os"
+
+    "github.com/joho/godotenv"
+)
+
+func main() {
+    err := godotenv.Load(".env")
+    if err != nil {
+        log.Fatalf("Error loading .env file")
+    }
+    fmt.Println("TEST:", os.Getenv("TEST"))
+}
 """

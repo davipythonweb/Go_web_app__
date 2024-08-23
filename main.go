@@ -9,12 +9,15 @@ import (
 )
 
 func con() *sql.DB {
+
 	conexao := "user=postgres dbname=golang_storage password=Db5$Ades10 host=localhost sslmode=enable"
+
 	db, err := sql.Open("postgres", conexao)
 	if err != nil {
 		panic(err.Error())
 	}
 	return db
+
 }
 
 type Produto struct {
