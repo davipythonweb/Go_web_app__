@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"html/template"
 	"net/http"
+
+	_ "github.com/lib/pq"
 )
 
 func con() *sql.DB {
