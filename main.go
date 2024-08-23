@@ -10,7 +10,7 @@ import (
 
 func con() *sql.DB {
 
-	conexao := "user=postgres dbname=golang_storage password=Db5$Ades10 host=localhost sslmode=enable"
+	conexao := "user=postgres dbname=golang_storage password=Db5$Ades10 host=localhost sslmode=disable"
 
 	db, err := sql.Open("postgres", conexao)
 	if err != nil {
@@ -21,6 +21,7 @@ func con() *sql.DB {
 }
 
 type Produto struct {
+	Id         int
 	Nome       string
 	Descricao  string
 	Preco      float64
@@ -32,24 +33,43 @@ var temp = template.Must(template.ParseGlob("templates/*.html"))
 
 // funcao para receber a request da rota  e criar  o server
 func main() {
-
-	db := con()
-	defer db.Close()
-
 	http.HandleFunc("/", index)
-	http.ListenAndServe(":9000", nil)
+	http.ListenAndServe(":9100", nil)
 }
 
 // função para renderizar o template apontando para o http.Request
 func index(w http.ResponseWriter, r *http.Request) {
-	produtos := []Produto{
-		{Nome: "Camiseta", Descricao: "Verde,cor de lodo", Preco: 45, Quantidade: 20},
-		{"Bermuda", "Cinza, claro", 35, 10},
-		{"Sapato", "Preto,couro de Jacaré", 105, 8},
-		{"Calça", "Azul,jeans escuro", 90, 5},
+
+	db := con()
+	selectDeTodosProdutos, err := db.Query("select * from produtos")
+	if err != nil {
+		panic(err.Error())
+	}
+	p := Produto{}
+	produtos := []Produto{}
+
+	for selectDeTodosProdutos.Next() {
+		var id, quantidade int
+		var nome, descricao string
+		var preco float64
+
+		err = selectDeTodosProdutos.Scan(&id, &nome, &descricao, &preco, &quantidade)
+		if err != nil {
+			panic(err.Error())
+		}
+
+		p.Nome = nome
+		p.Descricao = descricao
+		p.Preco = preco
+		p.Quantidade = quantidade
+
+		produtos = append(produtos, p)
 	}
 
 	temp.ExecuteTemplate(w, "index", produtos)
+
+	defer db.Close()
+
 }
 
 // aula 6 terminada
