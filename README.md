@@ -11,6 +11,9 @@
 * buildando e rodando todos os arquivos
 `go run *.go`
 
+- instalar pacote Go, do git:
+`go install github.com/lib/pq@v1.10.9`
+
 - codigo sql para criar a tabela no banco:
 
 """

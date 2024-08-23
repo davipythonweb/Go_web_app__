@@ -1,9 +1,19 @@
 package main
 
 import (
+	"database/sql"
 	"html/template"
 	"net/http"
 )
+
+func con() *sql.DB {
+	conexao := "user=postgres dbname=golang_storage password=Db5$Ades10 host=localhost sslmode=enable"
+	db, err := sql.Open("postgres", conexao)
+	if err != nil {
+		panic(err.Error())
+	}
+	return db
+}
 
 type Produto struct {
 	Nome       string
@@ -17,6 +27,10 @@ var temp = template.Must(template.ParseGlob("templates/*.html"))
 
 // funcao para receber a request da rota  e criar  o server
 func main() {
+
+	db := con()
+	defer db.Close()
+
 	http.HandleFunc("/", index)
 	http.ListenAndServe(":9000", nil)
 }
@@ -33,4 +47,4 @@ func index(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "index", produtos)
 }
 
-// aula 3 terminada
+// aula 6 terminada
