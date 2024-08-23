@@ -13,6 +13,10 @@
 
 - instalar pacote Go, do git:
 `go install github.com/lib/pq@v1.10.9`
+`go get github.com/lib/pq`
+
+- iniciar pacotes go
+`go mod init`
 
 - codigo sql para criar a tabela no banco:
 
