@@ -72,4 +72,4 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 }
 
-// aula 6 terminada
+// aula 7 terminada
