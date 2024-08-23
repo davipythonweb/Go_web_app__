@@ -8,6 +8,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
+// funcao de conexao com db
 func con() *sql.DB {
 
 	conexao := "user=postgres dbname=golang_storage password=Db5$Ades10 host=localhost sslmode=disable"
@@ -48,6 +49,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 	p := Produto{}
 	produtos := []Produto{}
 
+	// loop para pegar todos os produtos
 	for selectDeTodosProdutos.Next() {
 		var id, quantidade int
 		var nome, descricao string
@@ -66,8 +68,10 @@ func index(w http.ResponseWriter, r *http.Request) {
 		produtos = append(produtos, p)
 	}
 
+	// chamando o template e a variavel com todos os produtos do db
 	temp.ExecuteTemplate(w, "index", produtos)
 
+	// fechando a conexao do db
 	defer db.Close()
 
 }
