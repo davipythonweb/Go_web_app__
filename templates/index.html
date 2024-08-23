@@ -38,19 +38,14 @@
                 </tr>
             </thead>
             <tbody>
+                {{range .}}
                 <tr>
-                    <td>Camiseta</td>
-                    <td>Azul</td>
-                    <td>29,99</td>
-                    <td>05</td>
+                    <td>{{.Nome}}</td>
+                    <td>{{.Descricao}}</td>
+                    <td>{{.Preco}}</td>
+                    <td>{{.Quantidade}}</td>
                 </tr>
-    
-                <tr>
-                    <td>Calça Jeans</td>
-                    <td>preta</td>
-                    <td>79,99</td>
-                    <td>12</td>
-                </tr>
+                {{end}}
             </tbody>
         </table>
         
