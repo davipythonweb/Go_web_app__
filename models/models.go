@@ -16,7 +16,7 @@ type Produto struct {
 // funçao para fazer o query no db
 func GetProdutos() []Produto {
 	db := db.Con()
-	selectDeTodosProdutos, err := db.Query("select * from produtos")
+	selectDeTodosProdutos, err := db.Query("select * from produtos order by id asc")
 	if err != nil {
 		panic(err.Error())
 	}
