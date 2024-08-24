@@ -48,3 +48,6 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, "/", 301)
 }
+
+// aula 12 terminada
+// OBS: não esta salvando o produto no banco de dados
