@@ -50,4 +50,3 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 }
 
 // aula 12 terminada
-// OBS: não esta salvando o produto no banco de dados
