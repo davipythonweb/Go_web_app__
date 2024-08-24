@@ -42,7 +42,7 @@
                             <td>{{.Descricao}}</td>
                             <td>{{.Preco}}</td>
                             <td>{{.Quantidade}}</td>
-                            <td><a href="/delete?id={{.Id}}" class="btn btn-outline-danger">Deletar</a></td>
+                            <td><button onclick="onDelete('{{.Id}}')" class="btn btn-outline-danger">Deletar</button></td>
                         </tr>
                         {{end}}
                     </tbody>
@@ -56,5 +56,14 @@
         </div>
     </div>
 </body>
+<script>
+    // função para mostrar uma mensagem de confirmação de deleção com Javascript.
+    function onDelete(id) {
+        let resposta = confirm("Tem certeza disso? O produto sera apagado da base de dados.")
+        if (resposta) {
+            window.location = "/delete?id=" + id
+        }
+    }
+</script>
 </html>
 {{end}}
