@@ -56,4 +56,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", 301)
 }
 
-// aula 12 terminada
+// função para editar pelo id
+func Edit(w http.ResponseWriter, r *http.Request) {
+	temp.ExecuteTemplate(w, "Edit", nil)
+}

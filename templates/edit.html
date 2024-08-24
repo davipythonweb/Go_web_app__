@@ -1,12 +1,10 @@
-<!-- embedar um codigo Go para carregar o template -->
-{{define "New"}}
-
+{{define "Edit"}}
 {{template "_head"}}
 
 {{template "_menu"}}
 
 <body>
-    <h4>Salve um novo Produto.</h4>
+    <h4>Editar Produto</h4>
     <form action="insert" class="form-floating gap-3 mb-3" method="POST">
         <div class="form-floating mx-4 mb-3 col-md-4">
             <input type="text" class="form-control" name="nome">
@@ -25,7 +23,7 @@
                 <label for="floatingInput">Quantidade:</label>
         </div>
         
-        <button class="btn btn-success ms-4 mb-2" value="salvar" type="submit">Salvar</button>
+        <button class="btn btn-success ms-4 mb-2" value="salvar" type="submit">Atualizar</button>
         <a href="/" class="btn btn-primary mb-2">Voltar</a>
     </form>
 </body>

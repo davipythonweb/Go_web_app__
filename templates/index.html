@@ -17,6 +17,7 @@
                             <th>Preço</th>
                             <th>Quantidade</th>
                             <th>Opções</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +27,7 @@
                             <td>{{.Descricao}}</td>
                             <td>{{.Preco}}</td>
                             <td>{{.Quantidade}}</td>
+                            <td><a href="edit?id={{.Id}}" class="btn btn-outline-dark">Editar</a></td>
                             <td><button onclick="onDelete('{{.Id}}')" class="btn btn-outline-danger">Deletar</button></td>
                         </tr>
                         {{end}}
@@ -35,7 +37,7 @@
         </section>
 
         {{template "_footer"}}
-        
+
     </div>
 </body>
 <script>
