@@ -1,25 +1,9 @@
 <!-- embedar um codigo Go para carregar o template -->
 {{define "Index"}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja-Golang</title>
 
-    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+{{template "_head"}}
 
-    <!-- Bootstrap-Icons - via CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <!-- Bootstrap - via CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
-    crossorigin="anonymous">
-</head>
-
-<nav class="navbar navbar-light bg-light mb-4">
-    <a class="navbar-brand" href="/">Loja-Golang</a>
-</nav>
+{{template "_menu"}}
 
 <body>
     <div class="container">
@@ -49,11 +33,9 @@
                 </table>
             </div>
         </section>
-        <div class="card-footer">
-            <a href="/new" class="btn btn-primary mb-2">
-                <i class="bi bi-plus-circle"></i> Produto
-            </a>
-        </div>
+
+        {{template "_footer"}}
+        
     </div>
 </body>
 <script>
