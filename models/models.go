@@ -46,6 +46,15 @@ func GetProdutos() []Produto {
 	return produtos
 }
 
+// funçao para criar novo produto no banco
 func CriarNovoProduto(nome, descricao string, preco float64, quantidade int) {
 	db := db.Con()
+
+	insereDadosDb, err := db.Prepare("insert into produtos(nome, descricao, preco, quantidade) values($1, $2, $3, $4)")
+	if err != nil {
+		panic(err.Error())
+	}
+	insereDadosDb.Exec(nome, descricao, preco, quantidade)
+
+	defer db.Close()
 }

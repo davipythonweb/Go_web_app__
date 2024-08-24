@@ -25,6 +25,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "New", nil)
 }
 
+// funçcao para inserir os dados
 func Insert(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		nome := r.FormValue("nome")
