@@ -25,7 +25,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "New", nil)
 }
 
-// funçcao para inserir os dados
+// funçao para inserir os dados
 func Insert(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		nome := r.FormValue("nome")
@@ -58,5 +58,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 // função para editar pelo id
 func Edit(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "Edit", nil)
+	idProduto := r.URL.Query().Get("id")
+	produto := models.EditarProduto(idProduto)
+	temp.ExecuteTemplate(w, "Edit", produto)
 }

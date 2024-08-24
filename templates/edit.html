@@ -7,19 +7,19 @@
     <h4>Editar Produto</h4>
     <form action="insert" class="form-floating gap-3 mb-3" method="POST">
         <div class="form-floating mx-4 mb-3 col-md-4">
-            <input type="text" class="form-control" name="nome">
+            <input type="text" class="form-control" name="nome" value="{{.Nome}}">
             <label for="floatingInput">Nome:</label>
         </div>
         <div class="form-floating mx-4 mb-3 col-md-4">
-            <input type="text" class="form-control" name="descricao">
+            <input type="text" class="form-control" name="descricao" value="{{.Descricao}}">
             <label for="floatingInput">Descrição:</label>
         </div>
         <div class="form-floating mx-4 mb-3 col-md-4">
-            <input type="number" class="form-control" name="preco">
+            <input type="number" class="form-control" name="preco" value="{{.Preco}}">
             <label for="floatingInput">Preço:</label>
         </div>
         <div class="form-floating mx-4 mb-3 col-md-4">
-                <input type="number" class="form-control" name="quantidade">
+                <input type="number" class="form-control" name="quantidade" value="{{.Quantidade}}">
                 <label for="floatingInput">Quantidade:</label>
         </div>
         
