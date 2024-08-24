@@ -13,6 +13,7 @@ type Produto struct {
 	Quantidade int
 }
 
+// funçao para fazer o query no db
 func GetProdutos() []Produto {
 	db := db.Con()
 	selectDeTodosProdutos, err := db.Query("select * from produtos")
