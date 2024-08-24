@@ -19,7 +19,7 @@
 </nav>
 
 <body>
-    <form action="/insert" class="form-floating gap-3 mb-3" method="post">
+    <form action="insert" class="form-floating gap-3 mb-3" method="POST">
         <div class="form-floating mx-4 mb-3 col-md-4">
             <input type="text" class="form-control" name="nome">
             <label for="floatingInput">Nome:</label>
@@ -36,7 +36,8 @@
                 <input type="number" class="form-control" name="quantidade">
                 <label for="floatingInput">Quantidade:</label>
         </div>
-        <a href="/" class="btn btn-success ms-4 mb-2">Salvar</a>
+        
+        <button class="btn btn-success ms-4 mb-2" value="salvar" type="submit">Salvar</button>
         <a href="/" class="btn btn-primary mb-2">Voltar</a>
     </form>
 </body>
