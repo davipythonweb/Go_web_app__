@@ -5,7 +5,8 @@
 
 <body>
     <h4>Editar Produto</h4>
-    <form action="insert" class="form-floating gap-3 mb-3" method="POST">
+    <form action="update" class="form-floating gap-3 mb-3" method="POST">
+        <input type="hidden" name="id" value="{{.Id}}">
         <div class="form-floating mx-4 mb-3 col-md-4">
             <input type="text" class="form-control" name="nome" value="{{.Nome}}">
             <label for="floatingInput">Nome:</label>
